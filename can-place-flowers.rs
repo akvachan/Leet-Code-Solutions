@@ -17,16 +17,11 @@ fn can_place_flowers(flowerbed: Vec<i32>, n: i32) -> bool {
             // if flowerbed at i is 0, then look left and right
             if s_flowerbed[i] == 0 {
 
-                // check if left and right has zero, if yes, plant a 
-flower and increment count
-                // handle edge cases like pot at index 0 (has only right 
-neighbor)
-                // and also handle pot at index len()-1 (has only left 
-neighbor)
-                // Assumption is made that inexistant neighbors have zero 
-values
-                // so at i = -1, there is no flower and i = len() there is 
-no flower
+                // check if left and right has zero, if yes, plant a flower and increment count
+                // handle edge cases like pot at index 0 (has only right neighbor)
+                // and also handle pot at index len()-1 (has only left neighbor)
+                // Assumption is made that inexistant neighbors have zero values
+                // so at i = -1, there is no flower and i = len() there is no flower
                 if (i == 0 || s_flowerbed[i-1] == 0) && 
                 (i == s_flowerbed.len()-1 || s_flowerbed[i+1] == 0) {
                     s_flowerbed[i] = 1;
