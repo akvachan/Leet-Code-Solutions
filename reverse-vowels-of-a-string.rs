@@ -23,7 +23,7 @@ fn reverse_vowels(s: String) -> String {
     // The idea is to advance each pointer towards the center, swapping vowels when both
     // pointers identify vowels, thus reversing the order of vowels in-place.
     let mut left = 0;
-    let mut right = chars.len().saturating_sub(1);
+    let mut right = chars.len()-1;
 
     while left < right {
         if !is_vowel(chars[left]) {
@@ -31,13 +31,13 @@ fn reverse_vowels(s: String) -> String {
             continue;
         }
         if !is_vowel(chars[right]) {
-            right = right.saturating_sub(1);
+            right -= 1;
             continue;
         }
 
         chars.swap(left, right);
         left += 1;
-        right = right.saturating_sub(1);
+        right -= 1;
     }
 
     // Convert the characters back into a string.
