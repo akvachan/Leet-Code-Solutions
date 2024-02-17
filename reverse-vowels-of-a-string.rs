@@ -1,4 +1,10 @@
-pub fn reverse_vowels(s: String) -> String {
+fn main() {
+    let s: String = String::from("hello");
+    let expected: String = String::from("holle");
+    assert_eq!(expected, reverse_vowels(s));
+}
+
+fn reverse_vowels(s: String) -> String {
     /// Checks if a character is a vowel.
     /// 
     /// Considering the small set of vowels, using `matches!` is efficient and simplifies
