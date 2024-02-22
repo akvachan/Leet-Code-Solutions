@@ -5,23 +5,24 @@ fn main(){
 }
 
 fn increasing_triplet(nums: Vec<i32>) -> bool {
-        let mut first = i32::MAX;
-        let mut second = i32::MAX;
+        let mut min = i32::MAX;
+        let mut middle = i32::MAX;
 
-        // Very primitive solution, we just iteratively update the min, middle and max
+        // Very primitive solution, we just iteratively update the min and middle
         for element in nums{
-            // If element is less than or equal to first, element becomes new first
-            if element < first {
-                first = element;  
+            // If element is less than min,
+	    // we have found the new min value
+            if element < min {
+                min = element;  
             }
-            // If element is greater than first but less than or equal to second,
-            // we have found middle value
-            if element > first && element < second{
-                second = element;
+            // If element is greater than min but less than middle,
+            // we have found the new middle value
+            if element > min && element < middle{
+                middle = element;
             }
-            // If element is smaller then first, but greater then second,
-            // we have found triplet that satisfies condition
-            if element > first && element > second{
+            // If element is greater then min and greater than middle,
+            // we have found the third and last needed value
+            if element > min && element > middle{
                 return true;
             }
         }
